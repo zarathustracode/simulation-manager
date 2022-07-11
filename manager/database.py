@@ -74,20 +74,20 @@ session = Session()
 
 session.add(ed_user)
 session.add(linear_model)
-
-first_simulation = Simulation(userid=ed_user.id, modelid=linear_model.id)
-session.flush()
-
-session.add(first_simulation)
-
 session.add_all([
     User(name='wendy', fullname='Wendy Williams', email='wendy@gmail', nickname='windy'),
     User(name='mary', fullname='Mary Contrary', email='mary@gmail', nickname='mary'),
     User(name='fred', fullname='Fred Flintstone', email='fred@gmail', nickname='freddy')])
 
+session.flush()
+
+first_simulation = Simulation(userid=ed_user.id, modelid=linear_model.id)
+
+session.add(first_simulation)
 
 
 
+session.flush()
 session.commit()
 
 
