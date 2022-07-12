@@ -1,5 +1,11 @@
 from fastapi import FastAPI
-import database
+from database import User, Simulation, Model, Base
+from database_setup import engine
+
+
+Base.metadata.create_all(engine)
+
+
 
 app = FastAPI()
 
